@@ -2,16 +2,22 @@
     "name": "isheild",
     "displayName": "iSheild",
     "description": "Adaptive developer themes that automatically change with the time of day.",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "publisher": "jediOTW",
+    "categories": [
+        "Themes"
+    ],
     "icon": "icon.png",
     "main": "./extension.js",
+
     "engines": {
         "vscode": "^1.80.0"
     },
+
     "activationEvents": [
         "onStartupFinished"
     ],
+
     "contributes": {
         "themes": [
             {
