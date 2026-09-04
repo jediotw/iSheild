@@ -1,0 +1,7 @@
+[Unit]
+Description=iSheild terminal and tmux theme switcher
+
+[Service]
+Type=oneshot
+ExecStart=%h/iSheild/terminal/switch-palette.sh
+ExecStart=%h/iSheild/terminal/switch-tmux.sh

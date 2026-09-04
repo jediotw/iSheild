@@ -1,0 +1,10 @@
+[Unit]
+Description=Run iSheild terminal palette switcher
+
+[Timer]
+OnBootSec=30s
+OnUnitActiveSec=30s
+Persistent=true
+
+[Install]
+WantedBy=timers.target

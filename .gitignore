@@ -1,0 +1,11 @@
+# VS Code extension build artifacts
+vscode-extension/*.vsix
+
+# Node dependencies
+vscode-extension/node_modules/
+
+# OS/editor files
+.DS_Store
+*.swp
+*.swo
+*~
