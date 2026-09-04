@@ -1,0 +1,34 @@
+{
+    "name": "isheild",
+    "displayName": "iSheild",
+    "description": "Adaptive developer themes that automatically change with the time of day.",
+    "version": "0.1.0",
+    "publisher": "jediOTW",
+    "icon": "icon.png",
+    "main": "./extension.js",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "iSheild Morning",
+                "uiTheme": "vs",
+                "path": "./themes/isheild-morning-color-theme.json"
+            },
+            {
+                "label": "iSheild Day",
+                "uiTheme": "vs-dark",
+                "path": "./themes/isheild-day-color-theme.json"
+            },
+            {
+                "label": "iSheild Night",
+                "uiTheme": "vs-dark",
+                "path": "./themes/isheild-night-color-theme.json"
+            }
+        ]
+    }
+}
