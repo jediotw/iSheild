@@ -2,19 +2,29 @@ const vscode = require("vscode");
 
 
 
+
+
 const THEMES = {
 
 
 
-    MORNING: "iSheild Morning",
+
+
+MORNING: "iSheild Morning",
 
 
 
-    DAY: "iSheild Day",
+
+
+DAY: "iSheild Day",
 
 
 
-    NIGHT: "iSheild Night",
+
+
+NIGHT: "iSheild Night",
+
+
 
 
 
@@ -22,7 +32,11 @@ const THEMES = {
 
 
 
+
+
 function getPhase() {
+
+
 
 
 
@@ -30,35 +44,53 @@ const hour = new Date().getHours();
 
 
 
-    if (hour >= 6 && hour < 12) {
+
+
+if (hour >= 6 && hour < 12) {
 
 
 
-        return "MORNING";
 
 
-
-    }
-
+    return "MORNING";
 
 
-    if (hour >= 12 && hour < 18) {
-
-
-
-        return "DAY";
-
-
-
-    }
-
-
-
-    return "NIGHT";
 
 
 
 }
+
+
+
+
+
+if (hour >= 12 && hour < 18) {
+
+
+
+
+
+    return "DAY";
+
+
+
+
+
+}
+
+
+
+
+
+return "NIGHT";
+
+
+
+
+
+}
+
+
 
 
 
@@ -66,31 +98,47 @@ async function setTheme(theme) {
 
 
 
+
+
 const config = vscode.workspace.getConfiguration("workbench");
 
 
 
-    await config.update(
+
+
+await config.update(
 
 
 
-        "colorTheme",
+
+
+    "colorTheme",
 
 
 
-        theme,
+
+
+    theme,
 
 
 
-        vscode.ConfigurationTarget.Global
+
+
+    vscode.ConfigurationTarget.Global
 
 
 
-    );
+
+
+);
+
+
 
 
 
 }
+
+
 
 
 
@@ -98,7 +146,11 @@ function activate(context) {
 
 
 
+
+
 let currentPhase = null;
+
+
 
 
 
@@ -106,19 +158,29 @@ const applyCurrentTheme = async () => {
 
 
 
+
+
 const phase = getPhase();
 
 
 
-        if (phase === currentPhase) {
+
+
+    if (phase === currentPhase) {
 
 
 
-            return;
+
+
+        return;
 
 
 
-        }
+
+
+    }
+
+
 
 
 
@@ -126,35 +188,53 @@ const theme = THEMES[phase];
 
 
 
-        try {
+
+
+    try {
 
 
 
-            await setTheme(theme);
+
+
+        await setTheme(theme);
 
 
 
-            console.log(`iSheild → ${phase} → ${theme}`);
+
+
+        console.log(`iSheild → ${phase} → ${theme}`);
 
 
 
-            currentPhase = phase;
+
+
+        currentPhase = phase;
 
 
 
-        } catch (error) {
+
+
+    } catch (error) {
 
 
 
-            console.error("iSheild failed to change theme:", error);
+
+
+        console.error("iSheild failed to change theme:", error);
 
 
 
-        }
+
+
+    }
 
 
 
-    };
+
+
+};
+
+
 
 
 
@@ -162,7 +242,11 @@ const theme = THEMES[phase];
 
 
 
-    applyCurrentTheme();
+
+
+applyCurrentTheme();
+
+
 
 
 
@@ -170,27 +254,41 @@ const theme = THEMES[phase];
 
 
 
+
+
 const timer = setInterval(applyCurrentTheme, 30 * 1000);
 
 
 
-    context.subscriptions.push({
+
+
+context.subscriptions.push({
 
 
 
-        dispose() {
+
+
+    dispose() {
 
 
 
-            clearInterval(timer);
+
+
+        clearInterval(timer);
 
 
 
-        },
+
+
+    },
 
 
 
-    });
+
+
+});
+
+
 
 
 
@@ -198,7 +296,11 @@ const timer = setInterval(applyCurrentTheme, 30 * 1000);
 
 
 
+
+
 function deactivate() {}
+
+
 
 
 
@@ -206,11 +308,17 @@ module.exports = {
 
 
 
-    activate,
+
+
+activate,
 
 
 
-    deactivate,
+
+
+deactivate,
+
+
 
 
 

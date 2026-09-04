@@ -2,7 +2,7 @@
     "name": "isheild",
     "displayName": "iSheild",
     "description": "Adaptive developer themes that automatically change with the time of day.",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "publisher": "jediOTW",
     "icon": "icon.png",
     "main": "./extension.js",
